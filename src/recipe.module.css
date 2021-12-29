@@ -8,12 +8,11 @@
   align-items: center;
 }
 
-.button {
+.link {
   background-color: lightcoral;
   color: black;
-  border-radius: 50%;
-  border-color: black;
   margin-left: 60px;
+  text-decoration: none;
 }
 
 .kcal {

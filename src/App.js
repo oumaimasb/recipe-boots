@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Recipe from "./components/Recipe";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Recipe from "./Recipe";
 
 const App = () => {
   const id = "26959aad";
@@ -8,11 +7,11 @@ const App = () => {
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("chiken");
+  const [query, setQuery] = useState("banana"); // we choose banana by default at the first page
 
   useEffect(() => {
     getRecipes();
-  }, [query]);
+  }, [query]); //
 
   const getRecipes = async () => {
     const response = await fetch(
@@ -23,14 +22,14 @@ const App = () => {
     // console.log(data.hits);
   };
   const updateSearch = (e) => {
-    setSearch(e.target.value);
-    // console.log(search);
+    setSearch(e.target.value); //we put this function to consume data,
+    // console.log(search); //so what ever we put in search bar we gonna get that setSearch
   };
 
   const getSearch = (e) => {
-    e.preventDefault();
-    setQuery(search);
-    setSearch("");
+    e.preventDefault(); //Stop page refresh
+    setQuery(search); // Get result from query whatever we put in search
+    setSearch(""); //Back to empty input every time we excute our request
   };
 
   return (
